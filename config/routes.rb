@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :users, only: [:destroy]
   end
   
+  scope module: :public do
  devise_for :users
  resources :users, only: [:show, :edit, :update]
  resources :post_images, only: [:new, :index, :show, :create, :destroy] do
@@ -20,5 +21,5 @@ Rails.application.routes.draw do
 root to: "homes#top"
   
   get "/about" =>"homes#about"
-  
+end
 end
