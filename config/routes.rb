@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
- 
+  devise_for :admin, skip: [:registrations, :password], controllers: {
+    sessions: 'admin/sessions'
+  }
  devise_for :users
  resources :users, only: [:show, :edit, :update]
  resources :post_images, only: [:new, :index, :show, :create, :destroy] do
